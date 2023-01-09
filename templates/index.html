@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Segment Message Sender</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <h1>Segment Message Sender</h1>
+  <form action="/send_messages" method="post" enctype="multipart/form-data">
+    <label for="csv_file">Select CSV file:</label><br>
+    <input type="file" id="csv_file" name="csv_file"><br>
+    <br>
+    <label for="write_key">Write Key:</label><br>
+    <input type="text" id="write_key" name="write_key"><br>
+    <br>
+    <input type="submit" value="Submit">
+  </form>
+</body>
+</html>

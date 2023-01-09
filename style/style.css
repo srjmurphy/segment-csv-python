@@ -1,0 +1,32 @@
+/* Use a modern font */
+body {
+  font-family: 'Helvetica Neue', sans-serif;
+}
+
+/* Use a responsive layout */
+form {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* Style the form fields */
+input[type="text"], input[type="file"] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Style the submit button */
+input[type="submit"] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
