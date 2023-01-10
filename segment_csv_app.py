@@ -4,6 +4,8 @@ import base64
 from flask import Flask, request, render_template, make_response, redirect, flash
 
 app = Flask(__name__)
+
+# Set the secret key
 app.secret_key = 'your-secret-key'
 
 @app.route('/')
@@ -23,30 +25,31 @@ def send_messages():
         # Read in the CSV file using Pandas
         df = pd.read_csv(csv_file)
 
+        # Get the names of all the columns in the CSV file
+        column_names = df.columns.tolist()
+
         # Iterate over the rows of the CSV file and send a message for each row using the Segment API
         for index, row in df.iterrows():
-            message = row['message']
-            user_id = row['user_id']
+            # Create an empty dictionary to store the properties
+            properties = {}
 
-            payload = {
-                'userId': user_id,
-                'traits': {
-                    'message': message
-                }
-            }
-            requests.post('https://api.segment.io/v1/identify', json=payload, headers={
+            # Iterate over the columns and add the values to the properties dictionary
+            for column in column_names:
+                if column != 'user_id':
+                    properties[column] = row[column]
+
+            # Send the message using the Segment API
+            requests.post('https://api.segment.io/v1/identify', json={
+                'userId': row['user_id'],
+                'traits': properties
+            }, headers={
                 'Authorization': 'Basic ' + write_key_b64,
                 'Content-Type': 'application/json'
             })
 
-        # Redirect the user's browser to the index page and display a success message
-        flash('Messages successfully sent to Segment!')
-        return redirect('/')
+        # Display a prompt message to the user
+        return render_template('index.html', alert='Messages successfully sent to Segment!')
 
     except Exception as e:
         # If an error occurs, display an alert to the user
-        flash('An error occurred while sending messages to Segment: {}'.format(e))
-        return redirect('/')
-
-if __name__ == '__main__':
-    app.run()
+        return render_template('index.html', alert='An error occurred while sending messages to Segment: {}'.format(e))

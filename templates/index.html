@@ -1,19 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Segment Message Sender</title>
-    <link rel="stylesheet" href="/static/style.css">
+  <title>Send Messages to Segment</title>
+  <link rel="stylesheet" type="text/css" href="/static/style.css">
 </head>
 <body>
-  <h1>Segment Message Sender</h1>
-  <form action="/send_messages" method="post" enctype="multipart/form-data">
-    <label for="csv_file">Select CSV file:</label><br>
-    <input type="file" id="csv_file" name="csv_file"><br>
+  <!-- Form for uploading a CSV file and entering a write key -->
+  <form method="post" enctype="multipart/form-data" action="/send_messages">
+    <input type="file" name="csv_file" accept=".csv" required>
     <br>
-    <label for="write_key">Write Key:</label><br>
-    <input type="text" id="write_key" name="write_key"><br>
     <br>
-    <input type="submit" value="Submit">
+    <label for="write_key">Write Key:</label>
+    <br>
+    <input type="text" name="write_key" required>
+    <br>
+    <br>
+    <input type="submit" value="Send Messages">
   </form>
+
+  <!-- Alert message with close button -->
+  {% if alert %}
+    <div class="alert">
+      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+      {{ alert }}
+    </div>
+  {% endif %}
 </body>
 </html>

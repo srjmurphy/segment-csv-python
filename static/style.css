@@ -1,32 +1,82 @@
-/* Use a modern font */
+/* Set dark mode as the default */
 body {
-  font-family: 'Helvetica Neue', sans-serif;
+    background-color: #333; /* Change the background color to dark gray */
+    color: white; /* Change text color to white */
 }
 
-/* Use a responsive layout */
+/* Style for the form container */
 form {
-  max-width: 500px;
-  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 50px auto; /* Add margin to center the form */
+  padding: 20px; /* Add padding to give the form some spacing */
+  max-width: 600px; /* Specify a maximum width for the form */
+  width: 90%; /* Set the width to 90% to keep it compact and centered */
+  background-color: #2b2b2b; /* Use a dark background color by default */
+  transition: background-color 0.5s; /* Add transition for smooth background color change when switching to light mode */
+  border-radius: 10px; /* Add a border radius to make the form look more modern */
+  font-family: 'Open Sans', sans-serif; /* Use a modern font for the form */
 }
 
-/* Style the form fields */
-input[type="text"], input[type="file"] {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  box-sizing: border-box;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+/* Style for the form inputs */
+form input[type="file"],
+form input[type="text"],
+form input[type="submit"] {
+  width: 100%; /* Make the inputs take up the full width of the container */
+  padding: 12px; /* Add padding to the inputs for a more compact look */
+  margin-bottom: 20px; /* Add margin to separate the inputs */
+  box-sizing: border-box; /* Add box-sizing to include padding and border in the input width */
+  font-size: 16px;
+  border-radius: 5px; /* Add border radius to make the inputs look more modern */
+  background-color: #333; /* Set background color to match the container background */
+  color:white; /* text color white */
+  border: none; /* Remove border to make the input look more compact */
 }
 
-/* Style the submit button */
-input[type="submit"] {
-  width: 100%;
-  background-color: #4CAF50;
+/* Style for the submit button */
+form input[type="submit"] {
+    background-color: #4CAF50; /* Change the submit button color */
+    color: white;
+    border: none;
+    padding: 12px 32px; /* Make the padding smaller to make the button more compact */
+    text-align: center;
+    text-decoration: none;
+    cursor:pointer;
+}
+
+/* Style for the alert message */
+.alert {
+  padding: 20px;
+  background-color: #ffc107; /* Change the background color of the alert to dark yellow */
+  color: black;
+  margin: 0 auto; /* Center the alert horizontally */
+  max-width: 400px; /* Set a maximum width for the alert */
+  border-radius: 5px; /* Add border radius to make the alert look more modern */
+  text-align:center;
+  font-family: 'Poppins', sans-serif; /* Use a modern font for the alert */
+}
+
+/* Style for the close button */
+.closebtn {
+  margin-left: 15px;
   color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  border-radius: 4px;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
   cursor: pointer;
+  transition: 0.3s;
+}
+
+/* Add media query to adjust font size of form elements and alert message */
+@media only screen and (max-width: 600px) {
+  form input[type="file"],
+  form input[type="text"],
+  form input[type="submit"] {
+    font-size: 14px;
+  }
+  .alert {
+    font-size: 14px;
+  }
 }
