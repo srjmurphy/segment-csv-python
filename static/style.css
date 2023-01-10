@@ -10,7 +10,7 @@ h1 {
     text-align: center;
     color: #1E88E5;
     margin-top: 40px;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Open Sans', sans-serif; /* Use a modern font for the form */
 }
 
 
@@ -53,6 +53,46 @@ form input[type="submit"] {
     text-align: center;
     text-decoration: none;
     cursor:pointer;
+    box-shadow: 2px 2px 2px #666; /* Add a box-shadow effect */
+    text-shadow: 1px 1px 1px #666; /* Add a text-shadow effect */
+    background: linear-gradient(to right, #4CAF50, #2E7D32); /* Add gradient effect */
+}
+
+form input[type="submit"]:hover {
+    background-color: #2E7D32; /* Change the submit button color on hover */
+}
+
+form input[type="file"] {
+    position: relative;
+    overflow: hidden;
+    background-color: #4CAF50;
+    color:white;
+    padding: 12px 32px; /* Make the padding smaller to make the button more compact */
+    text-align: center;
+    text-decoration: none;
+    cursor:pointer;
+    box-shadow: 2px 2px 2px #666; /* Add a box-shadow effect */
+    text-shadow: 1px 1px 1px #666; /* Add a text-shadow effect */
+    background: linear-gradient(to right, #4CAF50, #2E7D32); /* Add gradient effect */
+    /*transition: transform .2s; */
+}
+form input[type="file"]:hover {
+    background-color: #2E7D32; /* Change the submit button color on hover */
+
+}
+form input[type="file"]::before {
+    content: "      Choose File";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 12px; /* Add padding to the inputs for a more compact look */
+    font-size: 16px;
+    border-radius: 5px; /* Add border radius to make the inputs look more modern */
+    background-color: #333; /* Set background color to match the container background */
+    color:white; /* text color white */
+    border: none; /* Remove border to make the input look more compact */
 }
 
 /* Style for the alert message */
@@ -90,3 +130,4 @@ form input[type="submit"] {
     font-size: 14px;
   }
 }
+
